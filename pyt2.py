@@ -7,6 +7,4 @@ def err(num):
 
 err(0)
 
-
-hjfvksjwkrh
-uihfyiuefhi
+saniya
