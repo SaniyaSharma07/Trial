@@ -1,5 +1,278 @@
 {
-  "key":"123",
-  "patient_mandatory_field": ["empi"],
-  "file_size": 5000000
+    "stateTransitions": {
+            "draft": {
+                "draft":{
+                    "isAllowed": false
+                },
+                "waitingForProvider": {
+                    "isAllowed": true,
+                    "mandatoryParameters": {"referral":  {"fields": ["selectedInsurance", "priority", "reason", "referredProvider", "referredClinic"],
+                                                        "mustExist": true},
+                                            "appointment": {"fields": ["preferredDays", "preferredSlots", "reminder", "comment", "selectedTime"],
+                                                            "mustExist":  true}}
+                    },
+                "accepted": {
+                    "isAllowed": false
+                    },
+                "rejected": {
+                    "isAllowed": false
+                    },
+                "rescheduled": {
+                    "isAllowed": false
+                    },
+                "cancelled": {
+                    "isAllowed": true,
+                    "mandatoryParameters" : {"referral" :{"mustExist":false},
+                                            "appointment" : {"mustExist":false}
+                                            }
+                    },
+                "completed": {
+                    "isAllowed": false
+                    }
+            },
+            "waitingForProvider": {
+                "waitingForProvider":{
+                    "isAllowed": false
+                },
+                "draft": {
+                    "isAllowed": true,
+                    "mandatoryParameters" : {"referral" :{"mustExist":false},
+                                            "appointment" : {"mustExist":false}
+                                        }
+                },
+                "accepted": {
+                    "isAllowed": true,
+                    "mandatoryParameters" : {"referral" :{"mustExist":false},
+                                                "appointment" : {"mustExist":false}
+                                            }
+                },
+                "rejected": {
+                    "isAllowed": true,
+                    "mandatoryParameters" : {"referral" :{"mustExist":false},
+                                            "appointment" : {"mustExist":false}
+                        }
+                    },
+                "rescheduled": {
+                    "isAllowed": true,
+                    "mandatoryParameters" : {"referral" :{"mustExist":false},
+                                            "appointment" : {"mustExist":false}
+                                            }
+                },
+                "cancelled": {
+                    "isAllowed": true,
+                    "mandatoryParameters" : {"referral" :{"mustExist":false},
+                                            "appointment" : {"mustExist":false}
+                                            }
+                },
+                "completed": {
+                    "isAllowed": false
+                    }
+            },
+            "accepted": {
+                "accepted": {
+                    "isAllowed": false
+                },
+                "waitingForProvider": {
+                    "isAllowed": false
+                },
+                "draft": {
+                    "isAllowed": true,
+                    "mandatoryParameters" : {
+                                            "referral" :{"mustExist":false},
+                                            "appointment" : {"mustExist":false}
+                                            }
+                },
+                "rejected": {
+                    "isAllowed": true,
+                    "mandatoryParameters" : {"referral" :{"mustExist":false},
+                                            "appointment" : {"mustExist":false}
+                                            }
+                },
+                "rescheduled": {
+                    "isAllowed": true,
+                    "mandatoryParameters" : {"referral" :{"mustExist":false},
+                                            "appointment" : {"mustExist":false}
+                                            }
+                },
+                "cancelled": {
+                    "isAllowed": true,
+                    "mandatoryParameters" : {"referral" :{"mustExist":false},
+                                            "appointment" : {"mustExist":false}
+                                        }
+                },
+                "completed": {
+                    "isAllowed": true,
+                    "mandatoryParameters" : {"referral" :{"mustExist":false},
+                                            "appointment" : {"mustExist":false}
+                    }
+                }
+            },
+            "cancelled": {
+                "cancelled":{
+                    "isAllowed":false
+                },
+                "waitingForProvider": {
+                    "isAllowed": false
+                },
+                "draft": {
+                    "isAllowed": false
+                },
+                "rejected": {
+                    "isAllowed": false
+                },
+                "rescheduled": {
+                    "isAllowed": false
+                },
+                "accepted": {
+                    "isAllowed": false
+                },
+                "completed": {
+                    "isAllowed": false
+                }
+            },
+            "rescheduled": {
+                "rescheduled" :{
+                    "isAllowed": false
+                },
+                "waitingForProvider": {
+                    "isAllowed": false
+                    },
+                "draft": {
+                    "isAllowed": true,
+                    "mandatoryParameters" : {"referral" :{"mustExist":false},
+                                            "appointment" : {"mustExist":false}
+                                            }
+                    },
+                "rejected": {
+                    "isAllowed": true,
+                    "mandatoryParameters" : {"referral" :{"mustExist":false},
+                                            "appointment" : {"mustExist":false}
+                                            }
+                    },
+                "accepted": {
+                    "isAllowed": false
+                    },
+                "cancelled": {
+                    "isAllowed": true,
+                    "mandatoryParameters" : {
+                                            "referral" :{"mustExist":false},
+                                            "appointment" : {"mustExist":false}
+                                        }
+                },
+                "completed": {
+                    "isAllowed": false
+                }
+            },
+            "rejected": {
+                "rejected":{
+                    "isAllowed": false
+                },
+                "waitingForProvider": {
+                    "isAllowed": false
+                    },
+                "draft": {
+                    "isAllowed": true,
+                    "mandatoryParameters" : {"referral" :{"mustExist":false},
+                                            "appointment" : {"mustExist":false}
+                                            }
+                    },
+                "accepted": {
+                    "isAllowed": false
+                    },
+                "rescheduled": {
+                    "isAllowed": false
+                    },
+                "cancelled": {
+                    "isAllowed": true,
+                    "mandatoryParameters" : {"referral" :{"mustExist":false},
+                                            "appointment" : {"mustExist":false}
+                                    }
+                },
+                "completed": {
+                    "isAllowed": false
+                }
+            },
+            "completed": {
+              "completed": {
+                "isAllowed": false
+              },
+              "waitingForProvider": {
+                "isAllowed": false
+              },
+              "draft": {
+                "isAllowed": false
+              },
+              "rejected": {
+                "isAllowed": false
+              },
+              "rescheduled": {
+                "isAllowed": false
+              },
+              "cancelled": {
+                "isAllowed": false
+              },
+              "accepted": {
+                "isAllowed": true,
+                "mandatoryParameters": {
+                  "referral": {
+                    "mustExist": false
+                  },
+                  "appointment": {
+                    "mustExist": false
+                  }
+                }
+              }
+            }
+    },
+
+"prioritylist": {"Urgent": "urgent", "Subacute": "subacute", "Routine": "routine"},
+
+"daylist": {"Sun": 1, "Mon": 2, "Tue": 3, "Wed": 4, "Thu": 5, "Fri": 6, "Sat": 7},
+
+"slotlist": {"Morning(8-12 PM)": "morning(8-12 pm)", "Afternoon(12-3 PM)": "afternoon(12-3 pm)", "Evening(3-6 PM)": "evening(3-6 pm)"},
+
+"statuslist": {"DRAFT": "draft", "WAITING FOR PROVIDER": "waitingForProvider", "RESCHEDULED": "rescheduled",
+                "ACCEPTED": "accepted", "REJECTED": "rejected", "COMPLETED": "completed", "CANCELLED": "cancelled"},
+
+"state_transition_messages":{
+    "completed":"Referral completed successfully",
+    "accepted":"Referral accepted",
+    "rejected":"Referral rejected",
+    "cancelled":"Referral cancelled",
+    "draft": "Referral created/in draft",
+    "rescheduled": "Referral rescheduled",
+    "waitingForProvider": "Referral sent/waitingForProvider"
+},
+
+"pageSize": 5,
+
+"TIMEZONE": "UTC",
+
+"POSTGRESQL_DB_NAME": "inref",
+"POSTGRESQL_DB_USER": "innovaccer",
+"POSTGRESQL_DB_PASSWORD": "innovaccer",
+"POSTGRESQL_DB_HOST": "localhost",
+"POSTGRESQL_DB_PORT": "5432",
+
+"RAVEN_DSN": "SOMETHING",
+
+"inapi_base_url": "http://3.95.95.117/inapi/",
+
+"authentication_url":"http://3.95.95.117/um/user/auth/me",
+"allowed_file_types": "['jpeg','png','pdf','jpg']",
+
+"aws_access_key": "",
+"aws_access_secret_key": "",
+"bucket_name": "",
+"data_upload_max_memory_size": "5242880",
+
+"file_upload_max_memory_size": "209715200",
+"file_size": "5000000",
+
+"patient_details_api_path": "patients/demographics/personal_information",
+"patient_risk_api_path": "patients/clinical/risk_detail?size=1&page=1",
+
+"provider_api_path": "providers/pdnpi",
+"patient_mandatory_field": ["empi"],
+"provider_mandatory_field": ["npi"]
 }
