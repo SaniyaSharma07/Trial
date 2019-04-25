@@ -1,3 +1,5 @@
 {
-  "key":"123"
+  "key":"123",
+  "patient_mandatory_field": ["empi"],
+  "file_size": 5000000
 }
